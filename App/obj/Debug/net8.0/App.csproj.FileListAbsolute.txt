@@ -1,0 +1,14 @@
+D:\Documents\Рабочий стол\PM-213\App\bin\Debug\net8.0\App.exe
+D:\Documents\Рабочий стол\PM-213\App\bin\Debug\net8.0\App.deps.json
+D:\Documents\Рабочий стол\PM-213\App\bin\Debug\net8.0\App.runtimeconfig.json
+D:\Documents\Рабочий стол\PM-213\App\bin\Debug\net8.0\App.dll
+D:\Documents\Рабочий стол\PM-213\App\bin\Debug\net8.0\App.pdb
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.AssemblyInfoInputs.cache
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.AssemblyInfo.cs
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.csproj.CoreCompileInputs.cache
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.dll
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\refint\App.dll
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.pdb
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\App.genruntimeconfig.cache
+D:\Documents\Рабочий стол\PM-213\App\obj\Debug\net8.0\ref\App.dll
