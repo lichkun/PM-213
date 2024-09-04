@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj": {}
+    "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj": {
+    "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj",
+        "projectUniqueName": "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj",
+        "projectPath": "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj",
         "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Рабочий стол\\PM-213\\App\\obj\\",
+        "outputPath": "D:\\Documents\\Рабочий стол\\XP\\App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,4 +1,5 @@
 ﻿using App;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Test
 {
@@ -8,7 +9,7 @@ namespace Test
         [TestMethod]
         public void ParseTest()
         {
-            Dictionary<String, int> testCases = new()
+            Dictionary<string, int> testCases = new()
             {
                 { "N",    0 },
                 { "I",    1 },
@@ -48,7 +49,7 @@ namespace Test
         [TestMethod]
         public void DigitValueTest()
         {
-            Dictionary<String, int> testCases = new()
+            Dictionary<string, int> testCases = new()
             {
                 {"N", 0 },
                 {"I", 1 },
@@ -66,6 +67,47 @@ namespace Test
                     RomanNumber.DigitValue(testCase.Key),
                     $"{testCase.Key} -> {testCase.Value}");
             }
+
+            Random random = new Random();
+            for(int i = 0;i<100; i++)
+            {
+                string invalidDigit = ((char) random.Next(256)).ToString();
+                if (testCases.ContainsKey(invalidDigit))
+                {
+                    i--;
+                    continue;
+                }
+            ArgumentException ex = Assert.ThrowsException<ArgumentException>(
+                () => RomanNumber.DigitValue(invalidDigit),
+                $"ArgumentException expected for digit = '{invalidDigit}'"
+                );
+            Assert.IsFalse(
+               string.IsNullOrEmpty(ex.Message),
+               "ArgumnetExceptionmust have a message"
+            );
+            Assert.IsTrue(
+               ex.Message.Contains($"'digit' has invalid value ''"),
+               "ArgumnetExceptionmust must contain a <'digit' has invalid value ''>"
+               );
+            Assert.IsTrue(
+               ex.Message.Contains($"'digit'"),
+               "ArgumnetExceptionmust must contain a 'digit'"
+               );
+            Assert.IsTrue(
+               ex.Message.Contains(nameof(RomanNumber))&&
+               ex.Message.Contains(nameof(RomanNumber.DigitValue)),
+               $"ArgumnetExceptionmust must contain '{nameof(RomanNumber)}' and  '{nameof(RomanNumber.DigitValue)}'"
+               );
+                var ex2 = Assert.ThrowsException<FormatException>(
+                    ()=> RomanNumber.Parse("W"),
+                    "Invalid format"
+                    );
+                Assert.IsTrue(
+                    ex2.Message.Contains("Invalid symbol 'W' in position 0"),
+                    "FormatException must contain data about symbol and it's position"
+                    );
+            }
+
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]

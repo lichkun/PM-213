@@ -1090,11 +1090,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Рабочий стол\\PM-213\\Test\\Test.csproj",
+      "projectUniqueName": "D:\\Documents\\Рабочий стол\\XP\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "D:\\Documents\\Рабочий стол\\PM-213\\Test\\Test.csproj",
+      "projectPath": "D:\\Documents\\Рабочий стол\\XP\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\nikit\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Рабочий стол\\PM-213\\Test\\obj\\",
+      "outputPath": "D:\\Documents\\Рабочий стол\\XP\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nikit\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1111,8 +1111,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj": {
-              "projectPath": "D:\\Documents\\Рабочий стол\\PM-213\\App\\App.csproj"
+            "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj": {
+              "projectPath": "D:\\Documents\\Рабочий стол\\XP\\App\\App.csproj"
             }
           }
         }
