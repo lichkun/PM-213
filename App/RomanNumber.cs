@@ -16,22 +16,39 @@ namespace App
         public int Value => _value;
         public static RomanNumber Parse(String input)
         {
-            for (int i = 0; i < 10; i++)
+            if(string.IsNullOrEmpty(input)) 
+                throw new ArgumentException("Input cannot be null or empty", nameof(input));
+
+            int value = 0;
+            int prevDigit = 0;
+
+            foreach (char c in input.Reverse())
             {
-                if(input == RomanNaturalNumbers[i])
+                int digit = DigitValue(c.ToString());
+                if (digit >= prevDigit)
                 {
-                    return new RomanNumber(Convert.ToInt32(i+1));
+                    value += digit;
                 }
+                else
+                {
+                    value -= digit;
+                }
+                prevDigit = digit;
             }
-            throw new Exception("That is not a valid Roman numeral within the natural numbers range.");
+            return new RomanNumber(value);
         }
+        public static int DigitValue(String digit) => digit switch
+        {
+            "N" => 0,
+            "I" => 1,
+            "V" => 5,
+            "X" => 10,
+            "L" => 50,
+            "C" => 100,
+            "D" => 500,
+            "M" => 1000,
+             _ => throw new ArgumentException("Invalid Roman digit.")
+        };
     }
-
-    
-
-
-
-
-
 
 }

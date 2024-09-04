@@ -1,4 +1,4 @@
-using App;
+﻿using App;
 
 namespace Test
 {
@@ -6,23 +6,82 @@ namespace Test
     public class RomanNUmberTest
     {
         [TestMethod]
-        public void TestParse()
+        public void ParseTest()
         {
-            var cases = new (string input, int expected)[]
+            Dictionary<String, int> testCases = new()
             {
-                ("I", 1),
-                ("IV", 4),
-                ("IX", 9),
-                ("X", 10),
-            };
+                { "N",    0 },
+                { "I",    1 },
+                { "II",   2 },
+                { "III",  3 },
+                { "IV",   4 },
+                { "VI",   6 },
+                { "VII",  7 },
+                { "VIII", 8 },
+                { "IX",   9 },
+                { "D",    500 },
+                { "M",    1000 },
+                { "CM",   900 },
+                { "MC",   1100 },
+                { "MCM",  1900 },
+                { "MM",   2000 },
 
-            foreach (var (input, expected) in cases)
+                 {"IIII", 4},
+                 {"VIIII", 9},
+                 {"XXXX", 40},
+                 {"LXXXX", 90},
+                 {"CCCC", 400},
+                 {"DCCCC", 900},
+            };
+            foreach (var testCase in testCases)
             {
-                RomanNumber result = RomanNumber.Parse(input);
-                Assert.AreEqual(expected, result.Value, $"Failed for input: {input}");
+                RomanNumber rn = RomanNumber.Parse(testCase.Key);
+                Assert.IsNotNull(rn);
+                Assert.AreEqual(
+                    testCase.Value,
+                    rn.Value,
+                    $"{testCase.Key} -> {testCase.Value}"
+                );
             }
         }
-        
 
+        [TestMethod]
+        public void DigitValueTest()
+        {
+            Dictionary<String, int> testCases = new()
+            {
+                {"N", 0 },
+                {"I", 1 },
+                {"V", 5 },
+                {"X", 10 },
+                {"L", 50 },
+                {"C", 100 },
+                {"D", 500 },
+                {"M", 1000 },
+            };
+            foreach (var testCase in testCases)
+            {
+                Assert.AreEqual(
+                    testCase.Value,
+                    RomanNumber.DigitValue(testCase.Key),
+                    $"{testCase.Key} -> {testCase.Value}");
+            }
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ParseTest_InvalidNumber()
+        {
+            var digits = new string[] { "", "ABC", "IIII", "MMMDCCCCLXXXVIII" };
+            foreach(var dig in digits)
+            {
+                RomanNumber.Parse(dig);
+            }
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ParseTest_NullInput()
+        {
+            RomanNumber.Parse(null);
+        }
     }
 }
