@@ -15,14 +15,15 @@ namespace App
         public static int ParseAsInt(String input)  
         {
             int value = 0;
-            int rightDigit = 0;   
+            int rightDigit = 0;
 
             _CheckValidity(input);
-
+            
 
             foreach (char c in input.Reverse())
             {
                 int digit = DigitValue(c.ToString());
+               
                 value += digit >= rightDigit ? digit : -digit;
                 rightDigit = digit;
             }
@@ -46,6 +47,7 @@ namespace App
         }
         private static void _CheckValidity(string input)
         {
+            _CheckSequence(input);
             _CheckSymbols(input);
             _CheckPairs(input);
             _CheckFormat(input);
@@ -115,6 +117,30 @@ namespace App
             }
 
         }
+        private static void _CheckSequence(string input)
+        {
+            int digit = 0;
+            int rightDigit = 0;
+            int previousDigit = 0;
+
+            foreach (char c in input.Reverse())
+            {
+                try
+                {
+                    digit = DigitValue(c.ToString());
+                }
+                catch (ArgumentException ex) { }
+
+                if (previousDigit > 0 && digit <= rightDigit && digit < previousDigit)
+                {
+                    throw new FormatException($"Invalid numeral sequence: {c} is smaller than both {rightDigit} and {previousDigit}");
+                }
+
+                previousDigit = rightDigit;
+                rightDigit = digit;
+            }
+        }
+
         public static int DigitValue(String digit) => digit switch
         {
             "N" => 0,

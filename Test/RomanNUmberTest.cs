@@ -250,7 +250,7 @@ namespace Test
             //}
         }
         [TestMethod]
-        public void DigitValueTest()
+         public void DigitValueTest()
         {
             Dictionary<string, int> testCases = new()
             {
