@@ -1,4 +1,4 @@
 # PM-213
-![изображение](https://github.com/user-attachments/assets/83162f4a-1098-4946-9e87-e260f870c888)
+![изображение](https://github.com/user-attachments/assets/3d00d6c7-b5d5-4b56-82c6-57566e209e49)
 
 
