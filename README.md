@@ -1,4 +1,7 @@
 # PM-213
+Методи рефакторингу. Продовження
+![изображение](https://github.com/user-attachments/assets/009e72ed-79a8-4c16-8ad4-07b069b2c20d)
+
 ![изображение](https://github.com/user-attachments/assets/3d00d6c7-b5d5-4b56-82c6-57566e209e49)
 
 Рефакторинг
