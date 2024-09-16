@@ -230,24 +230,25 @@ namespace Test
             //        ex.Message.Contains($"invalid sequence: more than 1 less digit before '{testCase[^1]}'"),
             //        $"ex.Message must contain info about origin, cause and data. {ex.Message}");
             //}
-            //string[] exTestCases5 =
-            //{
-            //    "IXIX", "IXX", "IXIV", 
-            //    "XCXC", "CMM", "CMCD",
-            //    "XCXL", "XCC", "XCCI"
-            //};
-            //foreach (var testCase in exTestCases5)
-            //{
-            //    var ex = Assert.ThrowsException<FormatException>(
-            //        () => RomanNumberFactory.Parse(testCase),
-            //        $"Parse '{testCase}' must throw FormatException"
-            //    );
-            //    Assert.IsTrue(
-            //        ex.Message.Contains(nameof(RomanNumber)) &&
-            //        ex.Message.Contains(nameof(RomanNumberFactory.Parse)) &&
-            //        ex.Message.Contains($"invalid sequence: more than 1 less digit before '{testCase[^1]}'"),
-            //        $"ex.Message must contain info about origin, cause and data. {ex.Message}");
-            //}
+            Dictionary<string, object[]> exTestCases5 = new()
+            {
+                { "IXIX", ['I', 2] }, { "IXX", ['X', 1] }, { "IXIV", ['I', 2] }, { "XCXC", ['X', 2] }, { "CMM", ['M', 2] },
+                { "CMCD", ['C', 2] }, { "XCXL", ['X', 2] }, { "XCC", ['C', 1] }
+            };
+
+            foreach (var testCase in exTestCases5)
+            {
+                var ex = Assert.ThrowsException<FormatException>(
+                    () => RomanNumberFactory.Parse(testCase.Key),
+                    $"Parse '{testCase.Key}' must throw FormatException"
+                );
+
+                Assert.IsTrue(
+                    ex.Message.Contains($"Invalid numeral sequence") || ex.Message.Contains("Invalid pattern"),
+                    $"FormatException must contain data about invalid pattern or order. TestCase: '{testCase.Key}', ex.Message: '{ex.Message}'"
+                );
+            }
+            
         }
         [TestMethod]
          public void DigitValueTest()
