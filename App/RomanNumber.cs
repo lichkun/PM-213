@@ -13,25 +13,8 @@ namespace App
             : this(RomanNumberFactory.ParseAsInt(input))
         {
         }
-        
-        /* Д.З. Скласти тести, що перевіряють роботу методу Plus
-         * з використанням римських записів чисел, наприклад,
-         * IV + VI = X
-         */
-
         public override string? ToString()
         {
-            // 3343 -> MMMCCCXLIII
-            // M M M
-            // D (500) x
-            // CD (400) x
-            // C C C
-            // L x
-            // XL 
-            // X x
-            // V x
-            // IV
-            // III
             if (Value == 0) return "N";
             Dictionary<int, String> parts = new()
             {
